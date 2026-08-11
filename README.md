@@ -12,6 +12,7 @@ Live Website: https://tradertanmay.github.io
 * **AI Engineer World's Fair**: Workshop — *"LLM Inference at Scale"* ([View Official Schedule](https://www.ai.engineer/worldsfair/schedule?view=canvas&session=asn_slot_2026_06_29_workshop_track_03_1210_2026_06_15t12_20_19_746z))
 * **SciPy Conference**: Conference Attendee & Mentor
 * **ODSC AI West**: Training Session — *"Serving LLMs Efficiently: A Hands-On Journey from Single-GPU Basics to Distributed Inference"*
+* **NC State University**: Invited Speaker — *"TanML Model Validation & Development"* (Master in Financial Mathematics Program [Quant Workshop](https://financialmath.sciences.ncsu.edu/quantworkshop/))
 
 ---
 

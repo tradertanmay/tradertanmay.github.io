@@ -6,15 +6,6 @@ Live Website: https://tradertanmay.github.io
 
 ---
 
-## Core Research Focus Areas
-
-* **AI Agent Verification & Safety**: Investigating safety-success tradeoffs in tool-using LLMs (*"The Verifier Tax"*).
-* **Model Validation & Governance**: Automated quantitative and machine learning model validation toolkits (*TanML*).
-* **Alternative Neural Architectures**: Routing-based neural architectures (*Cascade Routing Networks*).
-* **Predictive Analytics**: Multimodal machine learning virality prediction.
-
----
-
 ## Selected Conference Presentations & Talks
 
 * **ACM CAIS 2026**: Paper Presentation — *"The Verifier Tax: Safety-Success Tradeoffs in Tool Using LLM Agents"* ([Watch Presentation](https://www.youtube.com/watch?v=Mr5lr1MBDSM&t=310s))

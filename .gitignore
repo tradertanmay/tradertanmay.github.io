@@ -1,0 +1,6 @@
+# Ignore ai-concepts directory for now (only commit personal website)
+ai-concepts/
+
+# OS / Editor files
+.DS_Store
+*.log

@@ -19,5 +19,5 @@ Live Website: https://tradertanmay.github.io
 ## Verified Profiles
 
 * **GitHub**: [@tradertanmay](https://github.com/tradertanmay)
-* **Google Scholar**: [TanmaySah](https://scholar.google.com/citations?user=TanmaySah)
+* **Google Scholar**: [TanmaySah](https://scholar.google.com/citations?hl=en&user=zKhoa-QAAAAJ)
 * **LinkedIn**: [tanmay-sah](https://www.linkedin.com/in/tanmay-sah/)

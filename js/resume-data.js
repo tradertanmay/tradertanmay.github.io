@@ -10,7 +10,7 @@ const RESUME_DATA = {
     location: "Salt Lake City, UT / Remote",
     github: "https://github.com/tradertanmay",
     linkedin: "https://www.linkedin.com/in/tanmay-sah/",
-    scholar: "https://scholar.google.com",
+    scholar: "https://scholar.google.com/citations?hl=en&user=zKhoa-QAAAAJ",
     dblp: "https://dblp.org",
     email: ""
   },

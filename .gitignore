@@ -1,6 +1,12 @@
 # Ignore ai-concepts directory for now (only commit personal website)
 ai-concepts/
 
+# Build and migration artifacts
+.astro/
+_legacy/
+dist/
+node_modules/
+
 # OS / Editor files
 .DS_Store
 *.log

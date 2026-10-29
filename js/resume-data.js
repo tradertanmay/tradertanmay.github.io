@@ -61,34 +61,42 @@ const RESUME_DATA = {
 
   projects: [
     {
-      title: "TanML",
-      subtitle: "Automated Model Development & Validation Toolkit",
-      description: "Open-source automated model development and model validation toolkit designed for end-to-end quantitative and machine learning model evaluation.",
-      tags: ["Open Source", "Python", "Model Validation", "ML Toolkit"],
-      githubUrl: "https://github.com/tradertanmay",
-      btnLabel: "View Repository ↗"
+      title: "EvoUndo",
+      subtitle: "Recoverability-Constrained Self-Evolution for LLM Agent Harnesses",
+      description: "Research framework and runtime establishing recoverability invariants across self-evolving LLM agent harnesses, guaranteeing reversal across counterfactual execution states.",
+      tags: ["arXiv:2608.28363", "AI Agents", "Self-Evolution", "Python"],
+      githubUrl: "https://github.com/evoundo/evoundo",
+      btnLabel: "View on GitHub ↗"
     },
     {
       title: "The Verifier Tax",
       subtitle: "Safety–Success Tradeoffs in Tool-Using LLM Agents",
-      description: "Research investigating safety–success tradeoffs and verification mechanisms in tool-using LLM agents to ensure reliable execution.",
+      description: "Empirical research examining safety–success tradeoffs in tool-using LLM agent execution, introducing formal verifier tax metrics to quantify computational and latency costs.",
       tags: ["ACM CAIS 2026", "LLM Agents", "Verification", "AI Safety"],
       githubUrl: "https://dl.acm.org/doi/full/10.1145/3786335.3813160",
       btnLabel: "View ACM Publication ↗"
     },
     {
-      title: "Cascade Routing Networks",
-      subtitle: "Routing-Based Neural Architectures vs Attention",
-      description: "Innovative neural network research exploring routing-based architectures as an efficient, scalable alternative to standard attention mechanisms.",
-      tags: ["Neural Networks", "PyTorch", "Deep Learning", "Research"],
-      githubUrl: "https://github.com/tradertanmay",
-      btnLabel: "View Project / Code ↗"
+      title: "TanML",
+      subtitle: "Automated Validation Toolkit for Tabular Machine Learning Models",
+      description: "Open-source automated model validation toolkit published in the Journal of Open Source Software (JOSS) and peer-reviewed by pyOpenSci for regulatory model governance (SR 11-7).",
+      tags: ["JOSS 2024", "pyOpenSci", "Model Validation", "PyPI"],
+      githubUrl: "https://github.com/tdlabs-ai/tanml",
+      btnLabel: "View Repository (GitHub) ↗"
+    },
+    {
+      title: "AI Agents: Zero to Hero",
+      subtitle: "From First Principles to Multi-Step Autonomous Agents",
+      description: "Zero-dependency educational repository and workshop series explaining what makes an agent an agent in vanilla Python without framework abstractions.",
+      tags: ["Vanilla Python", "AI Agents", "Education", "Open Source"],
+      githubUrl: "https://github.com/tradertanmay/ai-agents-zero-to-hero",
+      btnLabel: "View Repository (GitHub) ↗"
     },
     {
       title: "Decoding Reddit Memes Virality",
-      subtitle: "Machine Learning Virality Prediction",
-      description: "Machine-learning research analyzing multimodal signals and social network metrics to predict meme virality.",
-      tags: ["Springer 2025", "Machine Learning", "Social Data", "Predictive ML"],
+      subtitle: "Multimodal Machine Learning Virality Prediction",
+      description: "Machine-learning research analyzing multimodal signals and social network metrics to predict meme virality, published in Springer Nature.",
+      tags: ["Springer 2025", "Machine Learning", "Social Data", "Research"],
       githubUrl: "https://link.springer.com/article/10.1007/s41060-025-00772-5",
       btnLabel: "View Springer Publication ↗"
     }

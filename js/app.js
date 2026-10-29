@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderResumeSection();
   renderBlogPosts();
   initVisualizers();
+  initLiveAgentScene();
+  initScrollRevealAndCounters();
 });
 
 /* 1. Scroll Progress Bar */
@@ -108,7 +110,7 @@ function renderResumeSection() {
 
   if (projectsContainer && typeof RESUME_DATA !== 'undefined') {
     projectsContainer.innerHTML = RESUME_DATA.projects.map(proj => `
-      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+      <div class="card reveal-item" style="display: flex; flex-direction: column; justify-content: space-between;">
         <div>
           <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
             <h4 style="font-size: 1.15rem; color: var(--text-ink); font-weight: 700;">${proj.title}</h4>
@@ -207,28 +209,174 @@ function initVisualizers() {
   }
 }
 
-/* 9. Interactive Undo Animation Scene Switcher */
-function switchUndoDemo(targetUrl, btnEl) {
-  const iframe = document.getElementById('undo-demo-iframe');
-  if (!iframe) return;
+/* 9. Theme Toggle (Gold Animation Dark <-> Paper Light) */
+function toggleSiteTheme() {
+  const isGold = document.body.classList.toggle('theme-gold');
+  const btn = document.getElementById('theme-toggle-btn');
+  if (btn) {
+    btn.textContent = isGold ? '☀️ Light Mode' : '✨ Gold Animation Theme';
+  }
+}
 
-  const switcher = document.getElementById('demo-scene-switcher');
-  if (switcher && btnEl) {
-    switcher.querySelectorAll('.btn-icon').forEach(b => b.classList.remove('active'));
-    btnEl.classList.add('active');
+/* 10. Native Live Agent Recovery Animation */
+function initLiveAgentScene() {
+  const scene = document.getElementById('evo-scene');
+  const status = document.getElementById('evo-status');
+  const stage = document.getElementById('evo-stage-text');
+  const result = document.getElementById('evo-result-text');
+  const fixed = document.getElementById('evo-fixed');
+  const scan = document.getElementById('evo-scan');
+  const file = document.getElementById('evo-file-state');
+  const progress = document.getElementById('evo-progress-bar');
+  const motion = document.getElementById('evo-motion');
+  const replay = document.getElementById('evo-replay');
+  const undo = document.getElementById('evo-undo-now');
+
+  if (!scene || !status || !stage || !result || !fixed || !scan || !file || !progress) return;
+
+  let running = true;
+  let clock = 0;
+  let last = 0;
+  const duration = 16500;
+  const undoStart = 9500;
+  const undoEnd = 13700;
+
+  function render() {
+    const t = clock;
+    let mode = '';
+    let cut = 0;
+
+    if (t < 2200) {
+      mode = 'working';
+      status.textContent = 'AGENT CODING';
+      stage.textContent = 'CAPTURE ORIGINAL STATE';
+      result.textContent = 'WITNESS SAVED';
+      file.textContent = 'WORKING TREE';
+    } else if (t < 5000) {
+      mode = 'mess';
+      status.textContent = 'MUTATION FAILED';
+      stage.textContent = 'BAD CHANGE COMMITTED';
+      result.textContent = 'SYSTEM STATE BROKEN';
+      file.textContent = '3 REGRESSIONS';
+    } else if (t < 7600) {
+      mode = 'needs-undo';
+      status.textContent = 'RECOVERY NEEDED';
+      stage.textContent = 'THE AGENT CANNOT REVERSE ITS CHANGE';
+      result.textContent = 'I NEED AN UNDO BUTTON!';
+      file.textContent = 'CHANGES STILL BROKEN';
+    } else if (t < undoStart) {
+      mode = 'button-ready';
+      status.textContent = 'UNDO AVAILABLE';
+      stage.textContent = 'WITNESSED UNDO PRIMITIVE READY';
+      result.textContent = 'PRESS ↶ UNDO TO RECOVER';
+      file.textContent = 'AWAITING UNDO';
+    } else if (t < undoEnd) {
+      mode = 'undoing';
+      status.textContent = 'UNDO IN PROGRESS';
+      stage.textContent = 'RESTORING FROM STATE WITNESS';
+      result.textContent = 'REVERSING THE MESS…';
+      file.textContent = 'RECOVERY ACTIVE';
+      cut = Math.min(100, Math.max(0, ((t - undoStart) / (undoEnd - undoStart)) * 100));
+    } else if (t < 15000) {
+      mode = 'restored';
+      status.textContent = 'RESTORED';
+      stage.textContent = 'CHECKING RESTORED STATE';
+      result.textContent = 'ORIGINAL CODE RESTORED';
+      file.textContent = 'RECOVERED';
+    } else {
+      mode = 'verified';
+      status.textContent = 'RECOVERY VERIFIED';
+      stage.textContent = 'INDEPENDENT STATE CHECK';
+      result.textContent = 'RECOVERY VERIFIED ✓';
+      file.textContent = 'VERIFIED';
+    }
+
+    scene.className = 'evo-scene ' + mode;
+    fixed.style.clipPath = 'inset(0 0 ' + (100 - cut) + '% 0)';
+    scan.style.top = cut + '%';
+    progress.style.width = ((100 * t) / duration) + '%';
   }
 
-  const currentSrc = iframe.getAttribute('src') || '';
-  if (targetUrl.startsWith('undo-deck.html#') && currentSrc.startsWith('undo-deck.html')) {
-    const slideNum = parseInt(targetUrl.split('#')[1], 10) || 1;
-    try {
-      if (iframe.contentWindow && typeof iframe.contentWindow.__undoDeckGo === 'function') {
-        iframe.contentWindow.__undoDeckGo(slideNum - 1);
-        iframe.setAttribute('src', targetUrl);
-        return;
+  function frame(now) {
+    if (!last) last = now;
+    const delta = now - last;
+    last = now;
+    if (running) {
+      clock = (clock + delta) % duration;
+      render();
+    }
+    requestAnimationFrame(frame);
+  }
+
+  if (undo) {
+    undo.addEventListener('click', () => {
+      if (clock >= 7600 && clock < undoStart) {
+        clock = undoStart;
+        render();
       }
-    } catch (_) {}
+    });
   }
 
-  iframe.setAttribute('src', targetUrl);
+  if (replay) {
+    replay.addEventListener('click', () => {
+      clock = 0;
+      running = true;
+      last = 0;
+      if (motion) motion.textContent = '⏸ PAUSE';
+      render();
+    });
+  }
+
+  if (motion) {
+    motion.addEventListener('click', () => {
+      running = !running;
+      motion.textContent = running ? '⏸ PAUSE' : '▶ PLAY';
+    });
+  }
+
+  render();
+  requestAnimationFrame(frame);
+}
+
+/* 11. Staggered Scroll-Reveal & Animated Counters */
+function initScrollRevealAndCounters() {
+  const allCards = document.querySelectorAll('#conferences .card, #research .card');
+  allCards.forEach((c, idx) => {
+    c.classList.add('reveal-item');
+    c.style.setProperty('--reveal-delay', `${(idx % 4) * 85}ms`);
+  });
+
+  const revealItems = document.querySelectorAll('.reveal-item');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    revealItems.forEach(el => observer.observe(el));
+  } else {
+    revealItems.forEach(el => el.classList.add('is-visible'));
+  }
+
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = Number(el.dataset.count || 0);
+    const suf = el.dataset.suf || '';
+    const useSep = el.dataset.sep === 'true';
+    const start = performance.now();
+    const duration = 1250;
+
+    function tick(now) {
+      const k = Math.min(1, (now - start) / duration);
+      const val = Math.round(target * (1 - Math.pow(1 - k, 3)));
+      const formatted = useSep ? val.toLocaleString('en-US') : String(val);
+      el.textContent = formatted + suf;
+      if (k < 1) requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+  });
 }

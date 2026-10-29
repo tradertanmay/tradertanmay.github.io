@@ -9,7 +9,7 @@
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="font-md">
+<body class="font-md theme-gold">
 
   <!-- Reading Progress Bar -->
   <div id="reading-progress-container">
@@ -20,7 +20,7 @@
   <header>
     <div class="container nav-wrapper">
       <a href="#" class="brand">
-        <img src="img/profile.jpg" alt="Tanmay Sah, PhD" class="brand-avatar" style="object-fit: cover;">
+        <img src="img/profile.jpg" alt="Tanmay Sah, PhD" class="brand-avatar" style="object-fit: cover; border: 1.5px solid var(--accent-primary);">
         <div class="brand-info">
           <h1>Tanmay Sah, PhD</h1>
           <p>AI Researcher & Sr. Quantitative Modeler</p>
@@ -31,6 +31,7 @@
         <li><a href="#about" class="nav-link active">About Me</a></li>
         <li><a href="#research" class="nav-link">Selected Research</a></li>
         <li><a href="#conferences" class="nav-link">Conferences & Talks</a></li>
+        <li><button type="button" id="theme-toggle-btn" class="btn-icon" onclick="toggleSiteTheme()" style="font-family: var(--font-mono); font-size: 0.78rem;">☀️ Light Mode</button></li>
         <li><a href="https://github.com/tradertanmay" target="_blank" class="btn-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;">GitHub ↗</a></li>
       </ul>
     </div>
@@ -39,11 +40,11 @@
   <main class="container">
     
     <!-- 1. ABOUT ME SECTION -->
-    <section class="hero" id="about" style="padding-top: 2rem;">
+    <section class="hero" id="about" style="padding-top: 2.25rem;">
       <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
-        <img src="img/profile.jpg" alt="Dr. Tanmay Sah, PhD" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid var(--border-color); box-shadow: var(--shadow-md);">
+        <img src="img/profile.jpg" alt="Dr. Tanmay Sah, PhD" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-primary); box-shadow: var(--shadow-md);">
         <div style="flex: 1; min-width: 280px;">
-          <div class="hero-tag">PhD in Data Science &bull; 14+ Years Industry Experience</div>
+          <div class="hero-tag">✻ PhD in Data Science &bull; 14+ Years Industry Experience</div>
           <h2 class="hero-title" style="margin-bottom: 0.5rem;">Building reliable AI systems.</h2>
         </div>
       </div>
@@ -61,67 +62,136 @@
 
       <div class="hero-actions">
         <a href="#research" class="btn-primary">View Selected Research →</a>
-        <a href="#interactive-demo" class="btn-secondary">▶ Interactive Undo Animation</a>
         <a href="#conferences" class="btn-secondary">Conference Presentations</a>
         <a href="https://github.com/tradertanmay/ai-agents-zero-to-hero" target="_blank" class="btn-secondary">Zero to Hero Agent Repo ↗</a>
+      </div>
+
+      <!-- Animated Research Metrics Strip -->
+      <div class="stats-strip">
+        <div class="stat-box reveal-item">
+          <div class="stat-num" data-count="14" data-suf="+">14+</div>
+          <div class="stat-lbl">Years Quantitative &amp; AI Research Experience</div>
+        </div>
+        <div class="stat-box reveal-item">
+          <div class="stat-num" data-count="1800" data-sep="true">1,800</div>
+          <div class="stat-lbl">Fault-Injected Agent Episodes (<span style="font-family:var(--font-mono)">UndoBench</span>)</div>
+        </div>
+        <div class="stat-box reveal-item">
+          <div class="stat-num" data-count="1368" data-sep="true">1,368</div>
+          <div class="stat-lbl">Real-World AI Failures Analyzed (<span style="font-family:var(--font-mono)">AIE NYC</span>)</div>
+        </div>
+        <div class="stat-box reveal-item">
+          <div class="stat-num" data-count="600">600</div>
+          <div class="stat-lbl">Self-Evolving Harness Mutation Tasks (<span style="font-family:var(--font-mono)">EvoUndo</span>)</div>
+        </div>
+      </div>
+
+      <!-- Native Live Agent Recovery Animation (No Slide Deck) -->
+      <div class="evo-showcase reveal-item" id="live-agent-animation">
+        <div class="evo-top">
+          <div>
+            <div class="evo-eyebrow">EVOUNDO &times; UNDOBENCH // LIVE AGENT RECOVERY ANIMATION</div>
+            <div class="evo-title">The agent made a mess. Can it undo it?</div>
+          </div>
+          <div class="evo-controls">
+            <button id="evo-motion" type="button">⏸ PAUSE</button>
+            <button id="evo-replay" type="button">↻ REPLAY</button>
+          </div>
+        </div>
+
+        <div class="evo-scene" id="evo-scene">
+          <div class="evo-graticule"></div>
+          <div class="evo-scene-title">
+            <small>CODING AGENT // RUNTIME</small>
+            One change. Two possible outcomes.
+          </div>
+          <div class="evo-scene-status" id="evo-status">AGENT CODING</div>
+
+          <div class="evo-robot-area">
+            <svg class="evo-robot-svg" viewBox="0 0 360 350" xmlns="http://www.w3.org/2000/svg" aria-label="Animated AI coding agent">
+              <ellipse cx="180" cy="323" rx="131" ry="16" fill="#101610"></ellipse>
+              <path d="M102 280 Q180 242 259 280 L278 313 H82Z" fill="#6b633d" stroke="#e3bd6d" stroke-width="5"></path>
+              <rect fill="#b7ad89" height="121" rx="47" stroke="#e3bd6d" stroke-width="7" width="149" x="106" y="168"></rect>
+              <g class="evo-arm left">
+                <path d="M108 213 Q64 208 51 262" fill="none" stroke="#b7ad89" stroke-linecap="round" stroke-width="24"></path>
+                <circle cx="50" cy="264" fill="#e4bd69" r="15"></circle>
+              </g>
+              <g class="evo-arm right">
+                <path d="M252 213 Q302 215 315 265" fill="none" stroke="#b7ad89" stroke-linecap="round" stroke-width="24"></path>
+                <circle cx="314" cy="265" fill="#e4bd69" r="15"></circle>
+              </g>
+              <rect fill="#c9bb96" height="160" rx="52" stroke="#f1cf80" stroke-width="7" width="221" x="69" y="54"></rect>
+              <rect fill="#1b241c" height="110" rx="31" width="175" x="92" y="80"></rect>
+              <g class="evo-eyes">
+                <rect fill="#dfb65f" height="26" rx="13" width="32" x="123" y="120"></rect>
+                <rect fill="#dfb65f" height="26" rx="13" width="32" x="205" y="120"></rect>
+              </g>
+              <g class="evo-bot-expression">
+                <path d="M120 139 l34 -20 M205 119 l34 20" stroke="#e3b45d" stroke-width="7"></path>
+                <path d="M158 163 Q181 143 204 163" fill="none" stroke="#e3b45d" stroke-width="6"></path>
+              </g>
+              <path d="M158 168 Q181 185 203 168" fill="none" stroke="#bd9d61" stroke-width="4"></path>
+              <path d="M181 54 V31" stroke="#e8c67d" stroke-width="7"></path>
+              <circle cx="181" cy="25" fill="#e8c67d" r="10"></circle>
+              <rect fill="#3c4335" height="25" rx="6" width="115" x="122" y="242"></rect>
+              <rect fill="#e3bd6d" height="4" rx="2" width="66" x="148" y="253"></rect>
+            </svg>
+          </div>
+
+          <div class="evo-bubble" id="evo-bubble">I NEED AN<br/>UNDO BUTTON!</div>
+          <button class="evo-undo-btn" id="evo-undo-now" type="button">↶ UNDO</button>
+
+          <div class="evo-editor">
+            <div class="evo-editor-head">
+              <span>harness_config.py</span>
+              <span id="evo-file-state" style="opacity: 0.75;">WORKING TREE</span>
+            </div>
+            <div class="evo-code-area">
+              <div class="evo-code-layer evo-code-original">
+                <div class="evo-code-line"><span class="evo-num">01</span><span class="evo-neutral">def configure_agent():</span></div>
+                <div class="evo-code-line"><span class="evo-num">02</span><span class="evo-good">  timeout = 30</span></div>
+                <div class="evo-code-line"><span class="evo-num">03</span><span class="evo-neutral">  safety_checks = True</span></div>
+                <div class="evo-code-line"><span class="evo-num">04</span><span class="evo-neutral">  retry_limit = 1</span></div>
+                <div class="evo-code-line"><span class="evo-num">05</span><span class="evo-neutral">  return VALID</span></div>
+              </div>
+              <div class="evo-code-layer evo-code-broken">
+                <div class="evo-code-line"><span class="evo-num">01</span><span class="evo-neutral">def configure_agent():</span></div>
+                <div class="evo-code-line"><span class="evo-num">02</span><span class="evo-bad">  timeout = 0  # changed!</span></div>
+                <div class="evo-code-line"><span class="evo-num">03</span><span class="evo-bad">  safety_checks = False</span></div>
+                <div class="evo-code-line"><span class="evo-num">04</span><span class="evo-bad">  retry_limit = 999</span></div>
+                <div class="evo-code-line"><span class="evo-num">05</span><span class="evo-bad">  return FAILED</span></div>
+              </div>
+              <div class="evo-code-layer evo-code-fixed" id="evo-fixed">
+                <div class="evo-code-line"><span class="evo-num">01</span><span class="evo-neutral">def configure_agent():</span></div>
+                <div class="evo-code-line"><span class="evo-num">02</span><span class="evo-good">  timeout = 30  # restored</span></div>
+                <div class="evo-code-line"><span class="evo-num">03</span><span class="evo-good">  safety_checks = True</span></div>
+                <div class="evo-code-line"><span class="evo-num">04</span><span class="evo-good">  retry_limit = 1</span></div>
+                <div class="evo-code-line"><span class="evo-num">05</span><span class="evo-good">  return VALID</span></div>
+              </div>
+              <div class="evo-scan" id="evo-scan"></div>
+            </div>
+          </div>
+
+          <div class="evo-terminal">
+            <span class="evo-stage-text" id="evo-stage-text">CAPTURE ORIGINAL STATE</span>
+            <span class="evo-result-text" id="evo-result-text">WITNESS SAVED</span>
+          </div>
+        </div>
+
+        <div class="evo-progress"><div id="evo-progress-bar"></div></div>
+        <div class="evo-legend">
+          <span>EVOUNDO MECHANISM: <b>state witness → mutation → typed undo → independent verification</b></span>
+          <span>Click <b>↶ UNDO</b> when prompted or <b>↻ REPLAY</b></span>
+        </div>
       </div>
     </section>
 
     <!-- 2. SELECTED RESEARCH & KEY PROJECTS -->
     <section class="section" id="research">
       <div class="section-header">
-        <h2 class="section-title">Selected Research & Key Projects</h2>
+        <div class="section-kicker">selected research &amp; open-source systems</div>
+        <h2 class="section-title">Selected Research &amp; Key Projects</h2>
         <p class="section-subtitle">Core research initiatives, open-source toolkits, and publications in AI agents, verification, and neural routing.</p>
-      </div>
-
-      <!-- Interactive Research Animation Showcase -->
-      <div class="card" id="interactive-demo" style="margin-bottom: 2rem; padding: 1.5rem; border: 1px solid var(--border-dark); box-shadow: var(--shadow-md);">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
-          <div>
-            <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.4rem;">
-              <span class="badge badge-primary">Interactive Research Animation</span>
-              <span class="badge badge-warning">AI Engineer Code Summit</span>
-              <span style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">EvoUndo (arXiv:2608.28363) &times; UndoBench (arXiv:2610.05622)</span>
-            </div>
-            <h3 style="font-family: var(--font-serif); font-size: 1.45rem; color: var(--text-ink); margin-bottom: 0.25rem;">
-              The Missing Undo Button: Witnessed Recoverability for Coding Agents
-            </h3>
-            <p style="font-size: 0.92rem; color: var(--text-body);">
-              Interactive live simulation: watch a coding agent introduce harness regressions and recover via witnessed <code style="font-family: var(--font-mono); font-size: 0.85em; background: var(--bg-subtle); padding: 0.15rem 0.4rem; border-radius: 4px;">↶ UNDO</code>, or explore the interactive 17-slide presentation deck.
-            </p>
-          </div>
-          <div style="display: flex; gap: 0.5rem; align-items: center;">
-            <a href="evoundo-demo.html" target="_blank" class="btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.82rem; text-decoration: none;">Standalone Animation ↗</a>
-            <a href="undo-deck.html" target="_blank" class="btn-primary" style="padding: 0.4rem 0.85rem; font-size: 0.82rem; text-decoration: none;">Full 17-Slide Deck ↗</a>
-          </div>
-        </div>
-
-        <!-- Scene Switcher Pills -->
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-color);" id="demo-scene-switcher">
-          <button type="button" class="btn-icon active" onclick="switchUndoDemo('evoundo-demo.html', this)">▶ Live Recovery Animation</button>
-          <button type="button" class="btn-icon" onclick="switchUndoDemo('undo-deck.html#1', this)">🤖 Slide 1: Missing Undo Cover</button>
-          <button type="button" class="btn-icon" onclick="switchUndoDemo('undo-deck.html#4', this)">⚡ Slide 4: Timeout ≠ Rollback</button>
-          <button type="button" class="btn-icon" onclick="switchUndoDemo('undo-deck.html#6', this)">🧭 Slide 6: Why git revert Fails</button>
-          <button type="button" class="btn-icon" onclick="switchUndoDemo('undo-deck.html#14', this)">🔬 Slide 14: Witnessed Undo</button>
-          <button type="button" class="btn-icon" onclick="switchUndoDemo('undo-deck.html#13', this)">📐 Slide 13: EvoUndo Architecture</button>
-        </div>
-
-        <!-- 16:9 Responsive Interactive Stage -->
-        <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-dark); background: #FAF6EE; box-shadow: var(--shadow-sm);">
-          <iframe
-            id="undo-demo-iframe"
-            src="evoundo-demo.html"
-            title="EvoUndo & UndoBench Interactive Research Animation"
-            style="width: 100%; height: 100%; border: 0; display: block;"
-            loading="lazy"
-            allowfullscreen
-          ></iframe>
-        </div>
-
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted);">
-          <span>💡 <strong>Tip:</strong> Click <code style="font-family: var(--font-mono);">↶ UNDO</code> inside the animation when the agent asks for help, or use <code style="font-family: var(--font-mono);">←</code> / <code style="font-family: var(--font-mono);">→</code> arrow keys inside the slide deck.</span>
-          <a href="https://github.com/evoundo/evoundo" target="_blank" style="color: var(--accent-primary); font-weight: 600; text-decoration: none;">github.com/evoundo/evoundo ↗</a>
-        </div>
       </div>
 
       <div class="grid-2" id="resume-projects-grid"></div>
@@ -130,17 +200,18 @@
     <!-- 3. CONFERENCE PRESENTATIONS & INVITED TALKS -->
     <section class="section" id="conferences">
       <div class="section-header">
-        <h2 class="section-title">Conference Presentations & Invited Talks</h2>
+        <div class="section-kicker">conferences, broadcasts &amp; keynotes</div>
+        <h2 class="section-title">Conference Presentations &amp; Invited Talks</h2>
         <p class="section-subtitle">Research presentations, papers, and keynotes delivered at major artificial intelligence and data science conferences.</p>
       </div>
 
       <div class="grid-2">
         <!-- AI Engineer Code Summit -->
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card reveal-item" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge badge-warning">AI Engineer Code Summit</span>
-              <span style="font-size: 0.8rem; color: var(--text-muted);">Featured Talk &amp; Live Demo</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Featured Talk</span>
             </div>
             <h3 style="font-size: 1.2rem; color: var(--text-ink); margin-bottom: 0.4rem;">AI Engineer Code Summit</h3>
             <p style="font-size: 0.95rem; color: var(--accent-primary); font-weight: 600; margin-bottom: 0.75rem;">Talk: "The Missing Undo Button: UndoBench &times; EvoUndo"</p>
@@ -149,8 +220,8 @@
             </p>
           </div>
           <div style="font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 0.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
-            <a href="#interactive-demo" style="color: var(--text-muted); text-decoration: none;">▶ Live Animation</a>
-            <a href="undo-deck.html" target="_blank" style="color: var(--accent-primary); font-weight: 600; text-decoration: none;">Open Interactive Deck (17 Slides) ↗</a>
+            <span>Speakers: Tanmay Sah, PhD &amp; Dolly Sah</span>
+            <a href="https://github.com/evoundo/evoundo" target="_blank" style="color: var(--accent-primary); font-weight: 600; text-decoration: none;">View EvoUndo Repo ↗</a>
           </div>
         </div>
         <!-- theCUBE Summit 2026 -->

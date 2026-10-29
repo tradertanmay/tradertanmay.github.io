@@ -510,3 +510,570 @@ footer {
   .hero-title { font-size: 2rem; }
   .nav-links { display: none; }
 }
+
+/* ==========================================================================
+   OBSIDIAN & WARM GOLD ANIMATION THEME + LIVE AGENT SCENE
+   ========================================================================== */
+
+body.theme-gold {
+  --bg-paper: #141413;
+  --bg-card: #1c1b19;
+  --bg-subtle: #24231f;
+  --bg-hover: #2f2c25;
+
+  --text-ink: #f0eee6;
+  --text-body: #d6d3c9;
+  --text-muted: #a8a59b;
+  --text-light: #6f6c64;
+
+  --accent-primary: #D9AC58;
+  --accent-primary-hover: #ecc371;
+  --accent-secondary: #8ab898;
+  --accent-warm: #e5b85e;
+
+  --border-color: #3a3833;
+  --border-dark: #715833;
+
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.28);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.38);
+  --shadow-lg: 0 22px 54px rgba(0, 0, 0, 0.5);
+
+  background-color: #141413;
+  background-image:
+    radial-gradient(900px 520px at 92% 0%, rgba(217, 172, 88, 0.14), transparent 62%),
+    radial-gradient(750px 480px at 8% 35%, rgba(217, 172, 88, 0.08), transparent 65%),
+    radial-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1.2px);
+  background-size: 100% 100%, 100% 100%, 26px 26px;
+  background-attachment: fixed;
+}
+
+body.theme-gold header {
+  background: rgba(20, 20, 19, 0.85);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 950;
+}
+
+body.theme-gold .hero-tag {
+  background: rgba(217, 172, 88, 0.14);
+  color: #D9AC58;
+  border-color: rgba(217, 172, 88, 0.45);
+  font-family: var(--font-mono);
+}
+
+body.theme-gold .btn-primary {
+  background: linear-gradient(135deg, #c69743, #e0b663);
+  color: #14120d;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(217, 172, 88, 0.25);
+}
+
+body.theme-gold .btn-primary:hover {
+  background: linear-gradient(135deg, #d7a852, #edd64);
+  transform: translateY(-1px);
+}
+
+body.theme-gold .badge-primary {
+  background: rgba(217, 172, 88, 0.14);
+  color: #e6c175;
+  border: 1px solid rgba(217, 172, 88, 0.3);
+}
+
+body.theme-gold .badge-success {
+  background: rgba(138, 184, 152, 0.15);
+  color: #a6d1b3;
+  border: 1px solid rgba(138, 184, 152, 0.3);
+}
+
+body.theme-gold .badge-warning {
+  background: rgba(229, 184, 94, 0.16);
+  color: #f2cf88;
+  border: 1px solid rgba(229, 184, 94, 0.35);
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+body.theme-gold .card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--accent-primary);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-primary);
+}
+
+/* Staggered Scroll-Reveal Animation */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section Kicker like the Animation Deck */
+.section-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--accent-primary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+.section-kicker::before {
+  content: "✻  ";
+}
+
+/* Animated Stats Strip */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0 0.5rem;
+}
+
+.stat-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.15rem 1.35rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-box::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--accent-primary);
+}
+
+.stat-num {
+  font-family: var(--font-sans);
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--accent-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.stat-lbl {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+  line-height: 1.35;
+}
+
+/* Native Animated AI Agent Recovery Scene */
+.evo-showcase {
+  margin-top: 2.25rem;
+  border-radius: 16px;
+  border: 1px solid #715833;
+  background: #0c110e;
+  padding: 1.25rem;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.35);
+  color: #F5F2EB;
+}
+
+.evo-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.evo-eyebrow {
+  font: 600 11px var(--font-mono);
+  color: #D9AC58;
+  letter-spacing: 0.16em;
+}
+
+.evo-title {
+  font-weight: 750;
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  color: #F5F2EB;
+  letter-spacing: -0.02em;
+}
+
+.evo-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.evo-controls button {
+  border: 1px solid #8a7144;
+  background: #241b10;
+  color: #f8e6c0;
+  font: 600 11px var(--font-mono);
+  padding: 7px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.evo-controls button:hover {
+  background: #49371d;
+}
+
+.evo-scene {
+  position: relative;
+  aspect-ratio: 16 / 8.2;
+  min-height: 290px;
+  border: 1px solid #715833;
+  border-radius: 12px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 70%, #2f2618 0%, #101612 45%, #070a09 85%);
+}
+
+.evo-graticule {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(#d9ac5814 1px, transparent 1px), linear-gradient(90deg, #d9ac5814 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+}
+
+.evo-scene-title {
+  position: absolute;
+  top: 5.5%;
+  left: 4.5%;
+  font-size: clamp(12px, 1.35vw, 19px);
+  font-weight: 700;
+  color: #F5F2EB;
+  z-index: 2;
+}
+
+.evo-scene-title small {
+  display: block;
+  font: 600 clamp(9px, 0.8vw, 11px) var(--font-mono);
+  letter-spacing: 0.14em;
+  color: #D9AC58;
+  margin-bottom: 4px;
+}
+
+.evo-scene-status {
+  position: absolute;
+  top: 5.5%;
+  right: 4.5%;
+  border: 1px solid #ae8a4e;
+  font: 700 clamp(10px, 0.95vw, 13px) var(--font-mono);
+  color: #ebcb85;
+  padding: 6px 11px;
+  background: #17160eda;
+  letter-spacing: 0.06em;
+  border-radius: 7px;
+  z-index: 2;
+}
+
+.evo-robot-area {
+  position: absolute;
+  left: 3.5%;
+  top: 24%;
+  bottom: 13%;
+  width: 31%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.evo-robot-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 12px 25px #0009);
+}
+
+.evo-arm {
+  transform-box: fill-box;
+  transform-origin: 50% 10%;
+  animation: evoTypeArms 0.42s ease-in-out infinite alternate;
+}
+
+.evo-arm.right {
+  animation-delay: -0.22s;
+}
+
+.evo-eyes {
+  animation: evoBlink 4s infinite;
+}
+
+.evo-bot-expression {
+  opacity: 0;
+}
+
+.evo-scene.mess .evo-bot-expression,
+.evo-scene.needs-undo .evo-bot-expression,
+.evo-scene.button-ready .evo-bot-expression,
+.evo-scene.undoing .evo-bot-expression {
+  opacity: 1;
+}
+
+.evo-scene.mess .evo-eyes,
+.evo-scene.needs-undo .evo-eyes,
+.evo-scene.button-ready .evo-eyes,
+.evo-scene.undoing .evo-eyes {
+  opacity: 0;
+}
+
+.evo-scene.needs-undo .evo-arm,
+.evo-scene.button-ready .evo-arm,
+.evo-scene.restored .evo-arm,
+.evo-scene.verified .evo-arm {
+  animation-play-state: paused;
+}
+
+@keyframes evoTypeArms {
+  from { transform: rotate(-16deg); }
+  to { transform: rotate(16deg); }
+}
+
+@keyframes evoBlink {
+  0%, 94%, 100% { opacity: 1; }
+  96% { opacity: 0.15; }
+}
+
+.evo-bubble {
+  position: absolute;
+  z-index: 9;
+  left: 16%;
+  top: 20%;
+  transform: translateX(-10%) translateY(10px) scale(0.92);
+  padding: 10px 14px;
+  border: 2px solid #e6ba64;
+  background: #171b16f5;
+  color: #ffdea0;
+  border-radius: 14px 14px 14px 3px;
+  font-weight: 800;
+  font-size: clamp(11px, 1.25vw, 17px);
+  line-height: 1.15;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s, transform 0.4s;
+  box-shadow: 0 12px 32px #000b, 0 0 20px #d9ac5833;
+  pointer-events: none;
+}
+
+.evo-scene.needs-undo .evo-bubble,
+.evo-scene.button-ready .evo-bubble {
+  opacity: 1;
+  transform: translateX(-10%) translateY(0) scale(1);
+}
+
+.evo-undo-btn {
+  position: absolute;
+  z-index: 11;
+  left: 13%;
+  bottom: 15%;
+  width: 22%;
+  padding: 9px 6px;
+  min-height: 42px;
+  border-radius: 11px;
+  border: 2px solid #f4cd7c;
+  background: linear-gradient(130deg, #50391a, #b68a38);
+  color: #fff6de;
+  font: 800 clamp(11px, 1.3vw, 18px) var(--font-mono);
+  box-shadow: 0 0 28px #efbb5370;
+  opacity: 0;
+  transform: translateY(20px) scale(0.86);
+  transition: opacity 0.45s, transform 0.45s;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.evo-scene.button-ready .evo-undo-btn {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  animation: evoUndoPulse 1.15s ease-in-out infinite alternate;
+}
+
+.evo-scene.undoing .evo-undo-btn {
+  opacity: 0.75;
+  transform: translateY(0) scale(1);
+  pointer-events: none;
+}
+
+@keyframes evoUndoPulse {
+  to {
+    box-shadow: 0 0 42px #f4c269bd;
+    filter: brightness(1.2);
+  }
+}
+
+.evo-editor {
+  position: absolute;
+  left: 39%;
+  top: 22%;
+  width: 56.5%;
+  height: 63%;
+  background: #0a100ef2;
+  border: 1px solid #655536;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px #000c;
+}
+
+.evo-editor-head {
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1d211a;
+  padding: 0 4%;
+  font: 600 clamp(10px, 0.95vw, 13px) var(--font-mono);
+  color: #e8d8b5;
+  border-bottom: 1px solid #4d432e;
+}
+
+.evo-code-area {
+  height: 85%;
+  position: relative;
+  font: 500 clamp(11px, 1.15vw, 16px)/1.95 var(--font-mono);
+}
+
+.evo-code-layer {
+  position: absolute;
+  inset: 0;
+  padding: 3.5% 5.5%;
+}
+
+.evo-code-line {
+  white-space: nowrap;
+}
+
+.evo-num {
+  display: inline-block;
+  width: 2.3em;
+  color: #6e7a6f;
+}
+
+.evo-good { color: #d5b775; }
+.evo-neutral { color: #d6ded7; }
+.evo-bad { color: #f0b38a; }
+
+.evo-code-broken { opacity: 0; }
+
+.evo-scene.mess .evo-code-broken,
+.evo-scene.needs-undo .evo-code-broken,
+.evo-scene.button-ready .evo-code-broken,
+.evo-scene.undoing .evo-code-broken {
+  opacity: 1;
+}
+
+.evo-scene.mess .evo-code-original,
+.evo-scene.needs-undo .evo-code-original,
+.evo-scene.button-ready .evo-code-original,
+.evo-scene.undoing .evo-code-original {
+  opacity: 0;
+}
+
+.evo-code-fixed {
+  z-index: 2;
+  background: #0a100e;
+  opacity: 0;
+  clip-path: inset(0 0 100% 0);
+}
+
+.evo-scene.undoing .evo-code-fixed {
+  opacity: 1;
+}
+
+.evo-scene.restored .evo-code-fixed,
+.evo-scene.verified .evo-code-fixed {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+}
+
+.evo-scene.restored .evo-code-broken,
+.evo-scene.verified .evo-code-broken,
+.evo-scene.restored .evo-code-original,
+.evo-scene.verified .evo-code-original {
+  opacity: 0;
+}
+
+.evo-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0, #d9ac58 8%, #fff0b5 50%, #d9ac58 92%, transparent);
+  box-shadow: 0 0 11px #f5ce79, 0 0 28px #e2aa6d86;
+  z-index: 4;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.evo-scene.undoing .evo-scan {
+  opacity: 1;
+}
+
+.evo-terminal {
+  position: absolute;
+  left: 4.5%;
+  right: 4.5%;
+  bottom: 3.5%;
+  height: 7.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font: 600 clamp(9px, 0.95vw, 13px) var(--font-mono);
+  color: #d8e0d8;
+  border-top: 1px solid #705c34;
+  padding-top: 1%;
+}
+
+.evo-stage-text { color: #d6b471; }
+.evo-result-text { font-weight: 750; }
+.evo-scene.verified .evo-result-text { color: #e8c573; }
+
+.evo-progress {
+  height: 4px;
+  background: #302718;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 0.65rem;
+}
+
+.evo-progress > div {
+  height: 100%;
+  width: 0;
+  background: #D9AC58;
+  transition: width 0.08s linear;
+}
+
+.evo-legend {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.76rem;
+  color: #aab7ac;
+  margin-top: 0.55rem;
+  font-family: var(--font-mono);
+}
+
+.evo-legend b {
+  color: #D9AC58;
+}

@@ -5,8 +5,8 @@
 const RESUME_DATA = {
   profile: {
     name: "Tanmay Sah, PhD",
-    title: "AI Researcher | Senior Quantitative Modeler | Machine Learning Practitioner",
-    bio: "AI researcher and quantitative modeler with 14+ years of industry experience and a PhD in Data Science. My work focuses on machine learning, model validation, large language models, AI agents, verification, and building reliable and evaluable AI systems.",
+    title: "AI Researcher | Reliable Autonomous Systems",
+    bio: "I research how autonomous AI agents can execute consequential actions reliably, verify outcomes, recover from failures, and improve over time.",
     location: "Salt Lake City, UT / Remote",
     github: "https://github.com/tradertanmay",
     linkedin: "https://www.linkedin.com/in/tanmay-sah/",
@@ -63,16 +63,16 @@ const RESUME_DATA = {
   projects: [
     {
       title: "EvoUndo",
-      subtitle: "Recoverability-Constrained Self-Evolution for LLM Agent Harnesses",
-      description: "Research framework and runtime establishing recoverability invariants across self-evolving LLM agent harnesses, guaranteeing reversal across counterfactual execution states.",
-      tags: ["arXiv:2608.28363", "AI Agents", "Self-Evolution", "Python"],
+      subtitle: "Witnessed Recoverability for Self-Evolving Agent Harnesses",
+      description: "Recoverability-constrained admission framework evaluated across 600 unseen harness-mutation tasks, rescuing 180 of 197 recovery-failing capability improvements and raising admissible candidates from 46.83% to 76.83% (461 / 600).",
+      tags: ["arXiv:2608.28363", "AI Agents", "Self-Evolution", "Witnessed Undo"],
       githubUrl: "https://github.com/evoundo/evoundo",
       btnLabel: "View on GitHub ↗"
     },
     {
       title: "UndoBench",
       subtitle: "Timeout ≠ Rollback: Measuring Rollback Integrity under Partial Failure",
-      description: "Benchmark of 1,800 fault-injected tool-execution episodes across 10 failure regimes showing that 53.3% of agent retry actions under LOST_ACK create duplicate external commits.",
+      description: "Fault-injected benchmark of 2,880 paired trials (5,760 runs) across 12 workflows showing that only 46.72% of nominally capable trials recover under fault and 53.33% of naïve retries under LOST_ACK create duplicate external commits.",
       tags: ["arXiv:2610.05622", "Agent Benchmark", "Rollback Integrity", "Fault Injection"],
       githubUrl: "https://arxiv.org/abs/2610.05622",
       btnLabel: "View arXiv Preprint ↗"

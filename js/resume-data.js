@@ -69,6 +69,14 @@ const RESUME_DATA = {
       btnLabel: "View on GitHub ↗"
     },
     {
+      title: "UndoBench",
+      subtitle: "Timeout ≠ Rollback: Measuring Rollback Integrity under Partial Failure",
+      description: "Benchmark of 1,800 fault-injected tool-execution episodes across 10 failure regimes showing that 53.3% of agent retry actions under LOST_ACK create duplicate external commits.",
+      tags: ["arXiv:2610.05622", "Agent Benchmark", "Rollback Integrity", "Fault Injection"],
+      githubUrl: "https://arxiv.org/abs/2610.05622",
+      btnLabel: "View arXiv Preprint ↗"
+    },
+    {
       title: "The Verifier Tax",
       subtitle: "Safety–Success Tradeoffs in Tool-Using LLM Agents",
       description: "Empirical research examining safety–success tradeoffs in tool-using LLM agent execution, introducing formal verifier tax metrics to quantify computational and latency costs.",

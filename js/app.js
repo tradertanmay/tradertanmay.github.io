@@ -202,5 +202,33 @@ function initVisualizers() {
   if (typeof NeuralNetSimulator !== 'undefined') {
     new NeuralNetSimulator('nn-canvas');
   }
-  updateTokenizerPreview('AI Agent Verification and Cascade Routing Networks');
+  if (typeof updateTokenizerPreview === 'function') {
+    updateTokenizerPreview('AI Agent Verification and Cascade Routing Networks');
+  }
+}
+
+/* 9. Interactive Undo Animation Scene Switcher */
+function switchUndoDemo(targetUrl, btnEl) {
+  const iframe = document.getElementById('undo-demo-iframe');
+  if (!iframe) return;
+
+  const switcher = document.getElementById('demo-scene-switcher');
+  if (switcher && btnEl) {
+    switcher.querySelectorAll('.btn-icon').forEach(b => b.classList.remove('active'));
+    btnEl.classList.add('active');
+  }
+
+  const currentSrc = iframe.getAttribute('src') || '';
+  if (targetUrl.startsWith('undo-deck.html#') && currentSrc.startsWith('undo-deck.html')) {
+    const slideNum = parseInt(targetUrl.split('#')[1], 10) || 1;
+    try {
+      if (iframe.contentWindow && typeof iframe.contentWindow.__undoDeckGo === 'function') {
+        iframe.contentWindow.__undoDeckGo(slideNum - 1);
+        iframe.setAttribute('src', targetUrl);
+        return;
+      }
+    } catch (_) {}
+  }
+
+  iframe.setAttribute('src', targetUrl);
 }

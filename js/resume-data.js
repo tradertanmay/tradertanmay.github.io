@@ -11,6 +11,7 @@ const RESUME_DATA = {
     github: "https://github.com/tradertanmay",
     linkedin: "https://www.linkedin.com/in/tanmay-sah/",
     scholar: "https://scholar.google.com/citations?hl=en&user=zKhoa-QAAAAJ",
+    aiEngineer: "https://ai.engineer/speakers/tanmay-sah",
     dblp: "https://dblp.org",
     email: ""
   },
